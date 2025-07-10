@@ -48,8 +48,8 @@ class ProjectMedia(models.Model):
         default=MediaType.IMAGE
     )
     video =models.FileField(upload_to='project_videos/', blank=True, null=True)
-    iframe_link = models.CharField(blank=True, null=True)
-    vimeo_video_id = models.CharField(blank=True, null=True)
+    iframe_link = models.CharField(blank=True, null=True, max_length=600)
+    vimeo_video_id = models.CharField(blank=True, null=True, max_length=100)
     image = models.ImageField(upload_to="project_images/", blank=True, null=True)
     related_project = models.ForeignKey(to=Project, on_delete=models.CASCADE, null=True)
     
