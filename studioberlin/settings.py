@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['backend.studioberlin.pedramksh.ir', 'localhost', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS=['https://*.pedramksh.ir', 'http://127.0.0.1:*']
 
 # Application definition
 
