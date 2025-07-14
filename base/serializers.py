@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from .models import GeneralSetting, GeneralSettingHeroImages, Section, Clients, SocialMediaLink, Modal, CounterItem
+from utils.fields import CustomFileField
 
 class GeneralSettingSerializer(serializers.ModelSerializer):
     hero_images = serializers.SerializerMethodField()
     social_media_links = serializers.SerializerMethodField()
     modals = serializers.SerializerMethodField()
+    website_logo = CustomFileField()
     
     class Meta:
         model = GeneralSetting
@@ -35,7 +37,7 @@ class GeneralSettingSerializer(serializers.ModelSerializer):
 class GeneralSettingHeroImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = GeneralSettingHeroImages
-        fields = ['id', 'image', 'left', 'right', 'top', 'down']
+        fields = ['id', 'image', 'left', 'right', 'top', 'bottom', 'mobile_width', 'desktop_width']
 
 class SocialLinksSerializer(serializers.ModelSerializer):
     class Meta:

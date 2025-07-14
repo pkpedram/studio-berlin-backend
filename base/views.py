@@ -11,7 +11,7 @@ class GeneralSettingRetrieveView(APIView):
         try:
             settings = GeneralSetting.objects.first()
             if settings:
-                serializer = GeneralSettingSerializer(settings)
+                serializer = GeneralSettingSerializer(settings,  context={'request': request})
                 return Response(serializer.data)
             return Response({"detail": "No general settings found."}, status=404)
         except Exception as e:

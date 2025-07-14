@@ -34,7 +34,7 @@ class Section(models.Model):
         
 class Clients(models.Model):
     name = models.CharField(blank=False, null=False, max_length=200)
-    logo = models.ImageField(blank=False, null=False)
+    logo = models.FileField(blank=False, null=False)
     ordering = models.IntegerField(default=0, null=False, blank=False)
     
     def __str__(self):
@@ -43,7 +43,7 @@ class Clients(models.Model):
 class GeneralSetting(models.Model):
     website_title = models.CharField(blank=False, max_length=200)
     hero_text = models.CharField(blank=True, max_length=200)
-    website_logo = models.ImageField(upload_to='shared_media/')
+    website_logo = models.FileField(upload_to='shared_media/')
     website_meta_description = models.CharField(blank=True, max_length=200)
     website_main_video = models.CharField(blank=True, max_length=200)
     contact_section_iframe_link = models.CharField(blank=True,max_length=600)
@@ -51,11 +51,13 @@ class GeneralSetting(models.Model):
     website_phone_number = models.CharField(blank=True, max_length=600)
     
 class GeneralSettingHeroImages(models.Model):
-    image = models.ImageField(upload_to='shared_media/')
+    image = models.FileField(upload_to='shared_media/')
     left = models.CharField(blank=True, null=True,max_length=10)
     right = models.CharField(blank=True, null=True,max_length=10)
     top = models.CharField(blank=True, null=True,max_length=10)
-    down = models.CharField(blank=True, null=True,max_length=10)
+    bottom = models.CharField(blank=True, null=True,max_length=10)
+    desktop_width = models.CharField(blank=True, null=True,max_length=10)
+    mobile_width = models.CharField(blank=True, null=True,max_length=10)
     
 class CounterItem(models.Model):
     title = models.CharField(blank=False, null=False,max_length=100)
@@ -66,7 +68,7 @@ class CounterItem(models.Model):
     
 class SocialMediaLink(models.Model):
     name = models.CharField(null=False, blank=False, max_length=200)
-    icon = models.ImageField(upload_to='shared_media/', null=True)
+    icon = models.FileField(upload_to='shared_media/', null=True)
     link = models.URLField(blank=False, null=False)
     ordering = models.IntegerField(default=0)
 

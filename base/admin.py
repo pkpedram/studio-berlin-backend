@@ -30,7 +30,7 @@ class GeneralSettingAdmin(admin.ModelAdmin):
 
 @admin.register(GeneralSettingHeroImages)
 class GeneralSettingHeroImagesAdmin(admin.ModelAdmin):
-    list_display = ['image', 'left', 'top', 'right', 'down']
+    list_display = ['image', 'left', 'top', 'right', 'bottom', 'desktop_width', 'mobile_width']
 
 @admin.register(CounterItem)
 class CounterItemAdmin(admin.ModelAdmin):

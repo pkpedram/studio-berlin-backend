@@ -19,7 +19,7 @@ class Project(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     ordering = models.IntegerField()
-    thumbnail = models.ImageField(upload_to="thumbnails/")
+    thumbnail = models.FileField(upload_to="thumbnails/")
     slug = models.SlugField(unique=True, blank=True)
 
     def __str__(self) -> str:
@@ -32,7 +32,7 @@ class ProjectRelatedCategory(models.Model):
     
     
 class ProjectCategoryImage(models.Model):
-    image = models.ImageField(upload_to='project_category_images/')
+    image = models.FileField(upload_to='project_category_images/')
     related_category = models.ForeignKey(to=ProjectCategory, on_delete=models.CASCADE)
     
 class ProjectMedia(models.Model):
@@ -50,7 +50,7 @@ class ProjectMedia(models.Model):
     video =models.FileField(upload_to='project_videos/', blank=True, null=True)
     iframe_link = models.CharField(blank=True, null=True, max_length=600)
     vimeo_video_id = models.CharField(blank=True, null=True, max_length=100)
-    image = models.ImageField(upload_to="project_images/", blank=True, null=True)
+    image = models.FileField(upload_to="project_images/", blank=True, null=True)
     related_project = models.ForeignKey(to=Project, on_delete=models.CASCADE, null=True)
     
     def __str__(self):
