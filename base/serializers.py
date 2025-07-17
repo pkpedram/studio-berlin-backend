@@ -7,6 +7,7 @@ class GeneralSettingSerializer(serializers.ModelSerializer):
     social_media_links = serializers.SerializerMethodField()
     modals = serializers.SerializerMethodField()
     website_logo = CustomFileField()
+    website_secondary_logo = CustomFileField()
     
     class Meta:
         model = GeneralSetting
@@ -21,6 +22,7 @@ class GeneralSettingSerializer(serializers.ModelSerializer):
             'website_phone_number',
             'hero_images',
             'social_media_links',
+            'website_secondary_logo',
             'modals'
         ]
 

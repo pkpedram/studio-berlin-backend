@@ -44,6 +44,7 @@ class GeneralSetting(models.Model):
     website_title = models.CharField(blank=False, max_length=200)
     hero_text = models.CharField(blank=True, max_length=200)
     website_logo = models.FileField(upload_to='shared_media/')
+    website_secondary_logo = models.FileField(upload_to='shared_media/', null=True)
     website_meta_description = models.CharField(blank=True, max_length=200)
     website_main_video = models.CharField(blank=True, max_length=200)
     contact_section_iframe_link = models.CharField(blank=True,max_length=600)
